@@ -6,7 +6,7 @@ steps:
   - name: npm_publish
     image: node
     commands:
-      - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+      - echo "//registry.npmjs.org/:_authToken=${NPM_SECRET}" > .npmrc
       - npm publish
 
   - name: gitea_release
