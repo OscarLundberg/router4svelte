@@ -8,7 +8,7 @@ steps:
     commands:
       - curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7 
       - pnpm install
-      - echo "//registry.npmjs.org/:_authToken=${NPM_SECRET}" > .npmrc
+      - echo "//registry.npmjs.org/:_authToken=$NPM_SECRET" > .npmrc
       - npm publish
 
   - name: gitea_release
