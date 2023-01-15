@@ -37,5 +37,8 @@
   },
   "bugs": {
     "url": "https://gitea.oscarlundberg.com/oscarlundberg/router4svelte/issues"
-  }
+  },
+  "keywords": [
+    "router", "svelte", "client-side", "spa"
+  ]
 }
