@@ -3,19 +3,20 @@ type: docker
 name: publish
 
 steps:
-- name: npm_publish
-  image: node
-  commands:
-  - npm publish
+  - name: npm_publish
+    image: node
+    commands:
+      - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+      - npm publish
 
-- name: gitea_release
-  image: plugins/gitea-release
-  settings:
-    api_key: $GITEA_API_KEY
-    base_url: $GITEA_BASE_URL
-    files: 
-      - dist
-      - src
+  - name: gitea_release
+    image: plugins/gitea-release
+    settings:
+      api_key: $GITEA_API_KEY
+      base_url: $GITEA_BASE_URL
+      files: 
+        - dist
+        - src
 
 trigger:
   branch:
