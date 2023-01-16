@@ -2,7 +2,7 @@ kind: pipeline
 type: docker
 name: build
 steps:
-  - name: check
+  - name: build_and_check
     image: node
     commands:
       - curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7 
@@ -15,7 +15,8 @@ trigger:
 kind: pipeline
 type: docker
 name: publish
-  - name: publish
+steps: 
+  - name: npm_publish
     image: node
     failure: "ignore"
     environment: 
