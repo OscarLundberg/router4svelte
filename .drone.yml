@@ -3,29 +3,26 @@ type: docker
 name: publish
 
 steps:
-  - name: npm_publish
+  - name: check
     image: node
-    failure: "ignore"
     environment: 
       NPM_SECRET:
         from_secret: NPM_SECRET
     commands:
       - curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7 
       - pnpm install
+      - pnpm svelte-check && pnpm build
+
+  - name: publish
+    image: node
+    failure: "ignore"
+    environment: 
+      NPM_SECRET:
+        from_secret: NPM_SECRET
+    commands:
       - NPM_REGISTRY="//registry.npmjs.org/:_authToken="
       - echo "$NPM_REGISTRY$NPM_SECRET" > .npmrc
       - npm publish
-
-  - name: gitea_release
-    image: plugins/gitea-release
-    settings:
-      api_key: 
-        from_secret: $GITEA_API_KEY
-      base_url: 
-        from_secret: GITEA_BASE_URL
-      files: 
-        - dist
-        - src
 
 trigger:
   branch:
