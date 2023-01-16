@@ -1,7 +1,6 @@
 kind: pipeline
 type: docker
-name: publish
-
+name: build
 steps:
   - name: check
     image: node
@@ -9,7 +8,13 @@ steps:
       - curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7 
       - pnpm install
       - pnpm svelte-check && pnpm build
-
+trigger:
+  branch:
+  - master
+---
+kind: pipeline
+type: docker
+name: publish
   - name: publish
     image: node
     failure: "ignore"
@@ -19,8 +24,8 @@ steps:
     commands:
       - NPM_REGISTRY="//registry.npmjs.org/:_authToken="
       - echo "$NPM_REGISTRY$NPM_SECRET" > .npmrc
-      - npm publish
+      - npm publish "router4svelte@$VERSION"
 
 trigger:
-  branch:
-  - master
+  event:
+  - promote
