@@ -25,7 +25,7 @@ steps:
     commands:
       - NPM_REGISTRY="//registry.npmjs.org/:_authToken="
       - echo "$NPM_REGISTRY$NPM_SECRET" > .npmrc
-      - npm publish "router4svelte@$VERSION"
+      - npm publish "router4svelte@$DRONE_DEPLOY_TO"
 
 trigger:
   event:
