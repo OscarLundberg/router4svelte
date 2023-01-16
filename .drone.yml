@@ -22,6 +22,8 @@ steps:
       NPM_SECRET:
         from_secret: NPM_SECRET
     commands:
+      - curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7 
+      - pnpm install
       - npm version "$DRONE_DEPLOY_TO"
       - NPM_REGISTRY="//registry.npmjs.org/:_authToken="
       - echo "$NPM_REGISTRY$NPM_SECRET" > .npmrc
