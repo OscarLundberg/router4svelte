@@ -23,9 +23,10 @@ steps:
       NPM_SECRET:
         from_secret: NPM_SECRET
     commands:
+      - npm version "$DRONE_DEPLOY_TO"
       - NPM_REGISTRY="//registry.npmjs.org/:_authToken="
       - echo "$NPM_REGISTRY$NPM_SECRET" > .npmrc
-      - npm publish "router4svelte@$DRONE_DEPLOY_TO"
+      - npm publish
 
 trigger:
   event:
