@@ -18,7 +18,6 @@ name: publish
 steps: 
   - name: npm_publish
     image: node
-    failure: "ignore"
     environment: 
       NPM_SECRET:
         from_secret: NPM_SECRET
