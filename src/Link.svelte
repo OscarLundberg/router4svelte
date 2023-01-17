@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { routeTo } from "./router";
+	import { RouterApi } from "./router-api";
 
 	export let href: string;
 </script>
@@ -9,7 +9,7 @@
 	{...$$restProps}
 	on:click={(e) => {
 		e.preventDefault();
-		routeTo(href);
+		RouterApi.routeTo(href);
 	}}
 >
 	<slot />

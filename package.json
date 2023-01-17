@@ -2,12 +2,12 @@
   "name": "router4svelte",
   "version": "1.0.7",
   "description": "client side routing for svelte",
-  "type": "module",
   "author": "Oscar Lundberg",
   "license": "ISC",
-  "svelte": "src/index.ts",
+  "svelte": "dist/index.js",
   "module": "dist/index.mjs",
-  "main": "dist/index.js",
+  "main": "dist/index.umd.js",
+  "types": "dist/ts/index.d.ts",
   "scripts": {
     "dev": "rollup -c -w",
     "svelte-check": "svelte-check",
@@ -15,17 +15,21 @@
     "prepublishOnly": "npm run svelte-check && npm run build"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^14.0.0",
-    "@rollup/plugin-node-resolve": "^8.4.0",
-    "@rollup/plugin-typescript": "^11.0.0",
-    "rollup": "^2.21.0",
-    "rollup-plugin-svelte": "^6.1.1",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@rollup/plugin-typescript": "^6.0.0",
+    "@tsconfig/svelte": "^1.0.10",
+    "fs-extra": "^9.0.1",
+    "glob": "^7.1.6",
+    "rollup": "^2.32.0",
+    "rollup-plugin-execute": "^1.1.1",
+    "rollup-plugin-filesize": "^9.0.2",
+    "rollup-plugin-svelte": "^6.0.1",
     "@rollup/plugin-terser": "^0.3.0",
-    "svelte": "^3.0.0",
-    "svelte-check": "^0.1.51",
-    "svelte-preprocess": "^4.0.8",
-    "tslib": "^2.0.0",
-    "typescript": "^4.9.4"
+    "svelte": "^3.24.0",
+    "svelte-check": "^1.0.60",
+    "svelte-preprocess": "^4.5.1",
+    "tslib": "^2.0.3",
+    "typescript": "^4.0.3"
   },
   "files": [
     "dist",
@@ -39,6 +43,9 @@
     "url": "https://gitea.oscarlundberg.com/oscarlundberg/router4svelte/issues"
   },
   "keywords": [
-    "router", "svelte", "client-side", "spa"
+    "router",
+    "svelte",
+    "client-side",
+    "spa"
   ]
 }

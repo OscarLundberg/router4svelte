@@ -1,12 +1,17 @@
 <script lang="ts">
-	import { NormalizedOptions } from "./types";
+	import type { NormalizedOptions } from "./types";
+	import { isset } from "./helpers";
 	export let options: NormalizedOptions;
+	function debug(options) {
+		console.log({ slot: options?.slot });
+		return true;
+	}
 </script>
 
-<svelte:component this={options.component} {...options.props}>
-	{#if options?.slot}
-		<slot>
-			<svelte:self options={options?.slot} />
-		</slot>
-	{/if}
-</svelte:component>
+{#if isset(options?.slot) && debug(options)}
+	<svelte:component this={options.component} {...options.props}>
+		<svelte:self options={options.slot} />
+	</svelte:component>
+{:else}
+	<svelte:component this={options.component} {...options.props} />
+{/if}

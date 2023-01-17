@@ -1,5 +1,6 @@
-import Router from "../src/Router.svelte"
-import Link from "../src/Link.svelte"
+import Router from "./Router.svelte"
+import Link from "./Link.svelte"
 import type { Router4SvelteConfig } from "./types"
-export { Router, Link }
+import type { RouterApi } from "./router-api"
+export { Router, Link, RouterApi }
 export type { Router4SvelteConfig as RouterConfig }
