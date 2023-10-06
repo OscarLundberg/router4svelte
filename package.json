@@ -1,6 +1,6 @@
 {
   "name": "router4svelte",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "client side routing for svelte",
   "author": "Oscar Lundberg",
   "license": "ISC",
