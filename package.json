@@ -37,10 +37,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://gitea.oscarlundberg.com/oscarlundberg/router4svelte.git"
+    "url": "https://github.com/OscarLundberg/router4svelte"
   },
   "bugs": {
-    "url": "https://gitea.oscarlundberg.com/oscarlundberg/router4svelte/issues"
+    "url": "https://github.com/OscarLundberg/router4svelte"
   },
   "keywords": [
     "router",
